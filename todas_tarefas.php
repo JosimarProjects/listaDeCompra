@@ -162,51 +162,44 @@ require 'tarefa_controller.php';
 
 
 
-						<table>
-						<div class="container">	
+						<table>	
 							<h6 >Bens de Consumo</h6>
-							<div class="row">			
-								<tr>
-									<td class="col-sm-1 border">Descrição</td>		
-									<td class="col-sm-3 border">Disponivel</td>
-									<td class="col-sm-3 border">Ideal</td>
-									<td class="col-sm-3 border">Falta</td>
-								
-								</tr>	
-							</div>							
+									
+							<tr class="container">
+								<td >Descrição</td>		
+								<td>Disponivel</td>
+								<td>Ideal</td>
+								<td>Falta</td>
+
+							</tr>						
 							
 							<?foreach ($tarefas as $indice => $tarefa) {
 								
 							if ($tarefas[$indice]->categoria == 'consumo') { ?>
 
 						
-							<div class="row">	
-								<tr class="mb-3 ">
-								<td class="pr-3 text-justify col-sm"  align="center"><?= $tarefas[$indice]->item ?></td>	
+								
+							<tr class="mb-3 ">
+								<td class="pr-3 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
 					
 									
-								<td class="pr-3 col-sm border" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
-								<td class="pr-3 col-sm border" align="center"><?= $tarefas[$indice]->ideal ?></td>
-								<td class="pr-3 col-sm border" align="center"> <?= $tarefas[$indice]->pendente ?> </td>
-
-
-
-							<div class="row">	
-								<td><i class="col-sm-4 pr-1  border fas fa-trash-alt fa-lg text-danger" onclick="apagar(<?= $tarefas[$indice]->id ?>)"></i></td>
-								<td><i class="col-sm-4 pr-1  border fas fa-edit fa-lg text-info" onclick="editar(<?= $tarefas[$indice]->id ?>, <?= $tarefas[$indice]->atual; ?>)"></i></td>
-								<td><i class="col-sm-4 pr-1 border fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i></td>	
-							</div>						
+								<td class="pr-3" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
+								<td class="pr-3" align="center"><?= $tarefas[$indice]->ideal ?></td>
+								<td class="pr-3" align="center"> <?= $tarefas[$indice]->pendente ?> </td>
+								<td><i class="pr-1 fas fa-trash-alt fa-lg text-danger" onclick="apagar(<?= $tarefas[$indice]->id ?>)"></i></td>
+								<td><i class="pr-1 fas fa-edit fa-lg text-info" onclick="editar(<?= $tarefas[$indice]->id ?>, <?= $tarefas[$indice]->atual; ?>)"></i></td>
+								<td><i class="pr-1 fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i></td>						
 
 							</tr>
-							</div>	
+
 								<? } ?>	
 							
 							<? }   ?>
 						
 
 						
-							</table>
-						</div>
+						</table>
+
 							<br>
 							<br>
 							<br>
@@ -216,12 +209,12 @@ require 'tarefa_controller.php';
 							<h6 >Limpeza</h6>
 									
 							<tr class="container">
-								<td class="pr-3">Descrição</td>		
-								<td class="pr-3">Disponivel</td>
-								<td class="pr-3">Ideal</td>
-								<td class="pr-3">Falta</td>
+								<td >Descrição</td>		
+								<td>Disponivel</td>
+								<td>Ideal</td>
+								<td>Falta</td>
 
-							</tr>						
+							</tr>							
 							
 							<?foreach ($tarefas as $indice => $tarefa) {
 								
