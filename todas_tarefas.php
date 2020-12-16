@@ -128,9 +128,9 @@ require 'tarefa_controller.php';
 			</div>
 		</nav>
 
-		<div class="container ">
+		<div class="container app">
 			<div class="row">
-				<div class="col-3 menu">
+				<div class="col-sm-3 menu">
 					<ul class="list-group">
 						<li class="list-group-item "><a href="index.php">Compras pendentes</a></li>
 						<li class="list-group-item "><a href="nova_tarefa.php">Novo item</a></li>
@@ -138,17 +138,17 @@ require 'tarefa_controller.php';
 					</ul>
 				</div>
 
-				<div class="col-9">
-					<div class=" ">
+				<div class="col-sm-9">
+					<div class="container pagina">
 						<div class="row">
-							<div class="col" style="border: 1px solid red">
+							<div class="col">
 								<h4>Lista de compras</h4>
 								<hr />		
 
 								
-								<h5 class="pt-2">Indice:</h5>
+								<h5>Indice:</h5>
 
-								<div class="row " >
+								<div class="row container" >
 								<i  class="col-lg-2 pr-3 fas fa-trash-alt fa-lg text-danger">Apagar</i><br>
 								<i class=" col-lg-4 pr-3 fas fa-edit fa-lg text-info">Atualizar Disponivel</i><br>
 								<i class="col-lg-6 pr-3 fas fa-check-square fa-lg text-success">Já possuo estoque:(não comprar) </i>
@@ -156,34 +156,33 @@ require 'tarefa_controller.php';
 
 
 								<br>
-								<div class=" row">	
-								<button class=" col-4 btn btn-warning mb-5 mt-2 d-inline-block text-truncate text-nowrap" onclick="resetar()"> Resetar Estoque Disponivel</button>	
-								</div>
-
-									<h6 >Bens de Consumo</h6>
-
-								
-								
-								<div class="container" style="border: 1px solid red;">	
-									<table>	
-													
-												<tr class="row" style="border: 1px solid blue;">
-												<td class=" col-3" style="border: 1px solid orange;">Descrição</td>
-												<td class=" col-3" style="border: 1px solid orange;">Disponivel</td>
-												<td  class=" col-3" style="border: 1px solid orange;">Ideal</td>	
-												<td class=" col-3" style="border: 1px solid orange;">Falta</td>
-												</tr>											
-													
-								
+								<div class="container row">	
+								<button class=" col-lg-4 btn btn-warning mb-5 mt-2 d-inline-block text-truncate text-nowrap" onclick="resetar()"> Resetar Estoque Disponivel</button>	
 								</div>
 
 
+
+						<table>	
+							<h6 >Bens de Consumo</h6>
+									
+							<tr class="container">
+								<td >Descrição</td>		
+								<td>Disponivel</td>
+								<td>Ideal</td>
+								<td>Falta</td>
+
+							</tr>						
+							
 							<?foreach ($tarefas as $indice => $tarefa) {
 								
-							if ($tarefas[$indice]->categoria == 'consumo') { ?>						
+							if ($tarefas[$indice]->categoria == 'consumo') { ?>
+
+						
 								
 							<tr class="mb-3 ">
-								<td class="pr-3 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>			
+								<td class="pr-3 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
+					
+									
 								<td class="pr-3" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
 								<td class="pr-3" align="center"><?= $tarefas[$indice]->ideal ?></td>
 								<td class="pr-3" align="center"> <?= $tarefas[$indice]->pendente ?> </td>
@@ -209,7 +208,7 @@ require 'tarefa_controller.php';
 							<table>	
 							<h6 >Limpeza</h6>
 									
-							<tr>
+							<tr class="container">
 								<td >Descrição</td>		
 								<td>Disponivel</td>
 								<td>Ideal</td>
