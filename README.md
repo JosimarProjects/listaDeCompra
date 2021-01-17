@@ -3,4 +3,6 @@ Lista de compras criada para facilitar um problema pessoal em supermecado e evit
 
 Foi criada com PHP puro e para lógica criada utilizamos o modo get para definir as actions.
 
+https://sualistadecompras.tk/
+
 
