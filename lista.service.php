@@ -52,7 +52,7 @@ class TarefaService {
 
 		if ($coluna == 'real') {
 					# code...
-		echo "estmoas aqui";	
+		echo "estamos aqui";	
 		print_r($this->item->__get('real'));			
 		print_r($this->item->__get('id'));
 

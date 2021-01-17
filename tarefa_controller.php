@@ -197,7 +197,9 @@ else if ($acao == 'recuperar') {
 
 	print_r($_GET['pagina']);
 		# code...
-	}else if ($pagina == "index") {
+	}else if ($pagina === "index") {
+		echo "kkkkkkkkkkkkkkkkk";
+		print_r($_GET['pagina']);
 
 	
 	header('location: index.php?acao=recuperar&tudo=não');

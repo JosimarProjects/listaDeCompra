@@ -7,6 +7,64 @@
 		<link rel="stylesheet" href="css/estilo.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+		<script>
+			
+			function tudoOk(){			
+
+				let teste1 = document.getElementById('descricao').value;
+				let teste2 = document.getElementById('quantidade').value;
+				let teste3 = document.getElementById('inputGroupSelect01').value
+
+				var vazio  =  [teste1, teste2, teste3]		
+
+
+				if (teste1 == "") {
+					event.preventDefault()
+					alert('Erro preencha a Descrição!')
+					
+					document.getElementById('quantidade').style.borderColor = ''
+					document.getElementById('inputGroupSelect01').style.borderColor = ''
+
+
+					document.getElementById('descricao').value;
+					document.getElementById('descricao').style.borderColor = 'red'
+
+
+				} else if (teste2 == "") {
+					event.preventDefault()
+
+					//caso descricao esteja vermelho e já tenha sido preenchida volta ao normal
+					document.getElementById('descricao').style.borderColor = ''
+					document.getElementById('inputGroupSelect01').style.borderColor = ''
+
+					alert('Erro preencha a Quantidade!') 
+					document.getElementById('quantidade').style.borderColor = 'red'
+
+				} else if (teste3 == "Escolher...") {
+					//caso descricao esteja vermelho e já tenha sido preenchida volta ao normal
+					document.getElementById('descricao').style.borderColor = ''
+					document.getElementById('quantidade').style.borderColor = ''
+
+					event.preventDefault()
+					alert('Erro preencha a categoria!') 
+					document.getElementById('inputGroupSelect01').style.borderColor = 'red'
+				}
+
+
+				/*if(teste1 == "" || teste2 == "" || teste3 == "Escolher...") {
+					event.preventDefault()
+
+					alert('Erro preencha Todos os campos!')	
+
+					}			*/	
+
+				}
+
+
+
+
+		</script>
 	</head>
 
 	<body>
@@ -41,9 +99,9 @@
 										<label>Descrição do item:</label>
 										
 
-										<input type="text" class="form-control " name='item' placeholder="Exemplo: Farinha de Trigo">
+										<input type="text" class="form-control " id="descricao" name='item' placeholder="Exemplo: Farinha de Trigo">
 										<label>Quantidade ideal (somente numeros inteiros):</label>
-										<input type="text" class="form-control" name='quantidade' placeholder="Exemplo: 4">
+										<input type="text" class="form-control" id="quantidade" name='quantidade' placeholder="Exemplo: 4">
 										Categoria:</label>								
 
 										<div class="input-group mb-3">
@@ -60,7 +118,7 @@
 
 									</div>
 
-									<button class="btn btn-success">Cadastrar</button>
+									<button class="btn btn-success" onclick="tudoOk()">Cadastrar</button>
 								</form>
 							</div>
 						</div>

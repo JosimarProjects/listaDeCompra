@@ -11,6 +11,16 @@ require 'tarefa_controller.php';
 
 <html>
 	<head>
+		<style type="text/css">
+			body {
+			width: 100%;
+	    	min-width: fit-content;
+	    	max-width: 100%;    
+
+
+			}
+
+		</style>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>App Lista de Compras</title>
@@ -35,7 +45,7 @@ require 'tarefa_controller.php';
 		</script>
 	</head>
 
-	<body>
+	<body class=".body">
 		<nav class="navbar navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="#">
@@ -59,16 +69,21 @@ require 'tarefa_controller.php';
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-								<h4>Compra pendentes</h4>
+								<h4 class=>Compra pendentes</h4>
 								<hr />
-									<table>	
+
+								<h5>Indice:</h5>	
+								<i class="pb-5 fas fa-check-square fa-lg text-success">Confirme a compra! </i>
+		
+
+						<table>	
 							<h6 >Bens de Consumo</h6>
 									
-							<tr>
-								<td class="pr-3">Descrição</td>		
-								<td class="pr-3">Disponivel</td>
-								<td class="pr-3">Ideal</td>
-								<td class="pr-3">Comprar</td>
+							<tr class=" row">
+								<th class="  col-3 pr-3">Descrição</th>		
+								<th class=" col-3 pr-3">Disponivel</th>
+								<th class=" col-3 pr-3">Ideal</th>
+								<th class=" col-3 pr-3">Comprar</th>
 
 							</tr>						
 							
@@ -81,20 +96,21 @@ require 'tarefa_controller.php';
 							 ?>
 
 								
-								
-								<tr class="mb-3">
-								<td class="pr-3 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
+						
+							<tr class="mb-3 row">
+
+								<td class="col-3 pr-3 pt-2 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
 					
 									
-								<td class="pr-3" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
-								<td class="pr-3" align="center"><?= $tarefas[$indice]->ideal ?></td>
-								<td class="pr-3" align="center"> <?= $tarefas[$indice]->pendente ?> </td>
+								<td class="col-3  pr-3 pt-2" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
+								<td class=" col-3 pr-3 pt-2" align="center"><?= $tarefas[$indice]->ideal ?></td>
+								<td class=" col-3 pr-2 pt-2" align="center"> <?= $tarefas[$indice]->pendente ?> <i class="fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i> </td>
 								
 								
-								<td><i class="pr-3 fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i></td>						
+									
 
 							</tr>
-
+				
 								<? } ?>	
 							
 							<? }   ?>
@@ -108,43 +124,50 @@ require 'tarefa_controller.php';
 							<br>
 							<br>
 
-							<table>	
+
+						<table>	
 							<h6 >Limpeza</h6>
 									
-							<tr>
-								<td class="pr-3">Descrição</td>		
-								<td class="pr-3">Disponivel</td>
-								<td class="pr-3">Ideal</td>
-								<td class="pr-3">Comprar</td>
+							<tr class=" row">
+								<th class="  col-3 pr-3">Descrição</th>		
+								<th class=" col-3 pr-3">Disponivel</th>
+								<th class=" col-3 pr-3">Ideal</th>
+								<th class=" col-3 pr-3">Comprar</th>
 
 							</tr>						
 							
 							<?foreach ($tarefas as $indice => $tarefa) {
 								
-							if ($tarefas[$indice]->categoria == 'limpeza' and $tarefa->pendente < 0) { ?>
-
-						
+							if ($tarefas[$indice]->categoria == 'limpeza' and $tarefa->pendente < 0) {
 								
-								<tr class="mb-3">
-								<td class="pr-3 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
+							
+
+							 ?>
+
+								
+						
+							<tr class="mb-3 row">
+
+								<td class="col-3 pr-3 pt-2 text-justify"  align="center"><?= $tarefas[$indice]->item ?></td>	
 					
 									
-								<td class="pr-3" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
-								<td class="pr-3" align="center"><?= $tarefas[$indice]->ideal ?></td>
-								<td class="pr-3" align="center"> <?= $tarefas[$indice]->pendente ?> </td>
-											
-								<td><i class="pr-3 fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i></td>						
+								<td class="col-3  pr-3 pt-2" id="tarefa_<?=$tarefas[$indice]->id?>" align="center"><?= $tarefas[$indice]->atual ?></td>
+								<td class=" col-3 pr-3 pt-2" align="center"><?= $tarefas[$indice]->ideal ?></td>
+								<td class=" col-3 pr-2 pt-2" align="center"> <?= $tarefas[$indice]->pendente ?> <i class="fas fa-check-square fa-lg text-success" onclick="comprado(<?= $tarefa->id ?>, <?= $tarefas[$indice]->ideal ?>)"></i> </td>
+								
+								
+									
 
 							</tr>
-
+				
 								<? } ?>	
 							
 							<? }   ?>
 						
 
 						
-						</table>			
-						
+						</table>	
+
 
 							</div>
 						</div>
