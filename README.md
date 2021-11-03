@@ -7,3 +7,14 @@ Foi criada com PHP no back-end e javascript no front-end e no banco de dados est
 https://sualistadecompras.tk/
 
 
+Criar banco de dados com a seguinte query 
+
+create table tb_lista(
+	id int not null primary key auto_increment,
+    item varchar(25) not null,
+    atual int not null,
+    ideal int not null,
+categoria varchar(25) not null,
+pendente int not null
+    
+)
